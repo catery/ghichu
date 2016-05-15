@@ -57,7 +57,7 @@
 	<a href="danh-sach" class="waves-effect waves-light btn">Làm mới<i class="material-icons right">loop</i></a>
 </div>
 <div class="input-field col s12">
-	<form name="frmSrch" method="get" action="portal/danhsach">
+	<form name="frmSrch" method="get" action="danh-sach">
 		<input id="Key" type="text" name="Key">
 		<label for="Key">Tìm kiếm...</label>
 	</form>
