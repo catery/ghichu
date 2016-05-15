@@ -1,0 +1,80 @@
+@media only screen and (max-width: 699px){
+    .container {
+		width: 100%;
+		padding: 0 10px;
+		border: 0;
+	}
+	.mbile .btn {
+		width: 115px;
+		font-size: 10pt;
+		padding: 0;
+	}
+	.mbile .material-icons {
+		margin-left: -5px;
+		margin-right: 5px;
+	}
+	.n-mbile {
+		display: none;
+	}
+	.n-ul-mbile {
+		display: none;
+	}
+	.nmtable {
+		display: none;
+	}
+	.modal {
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 700px) {
+   .container {
+		width: 450px;
+		height: 300px;
+		padding: 0 10px;
+		border: 0;
+	}
+	.mbile {
+		display: none;
+	}
+	.ul-mbile {
+		display: none;	
+	}
+	.mtable {
+		display: none;
+	}
+	.modal {
+		width: 500px;
+	}
+}
+.clear-fix {
+	clear: both;
+	margin-top: 5px;
+}
+/* Pagination */
+.pagination{
+	width: 100%;
+	margin-top: 10px;
+	text-align: right;
+}
+.pagination strong{
+	color: #ffffff;
+	padding: 4px 9px;
+	background-color: rgb(61, 173, 53);
+}
+.pagination a{
+	text-decoration: none;
+	padding: 4px 9px;
+	background-color: #ffffff;
+}
+.pagination a:hover{
+	background-color: rgb(232, 234, 232);
+}
+.collapsible:hover a{
+	cursor: pointer;
+}
+.dropdown-content{
+	max-height: auto;
+	min-width: 200px;
+	overflow: hidden;
+	margin-top: 0px;
+}
