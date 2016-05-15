@@ -50,11 +50,11 @@
 <!--Mobile-->
 <div class="mbile">
 	<a href="tao-moi" class="waves-effect waves-light btn">Thêm mới<i class="material-icons right">add_circle_outline</i></a>
-	<a href="portal/danhsach" class="waves-effect waves-light btn">Làm mới<i class="material-icons right">loop</i></a>
+	<a href="danh-sach" class="waves-effect waves-light btn">Làm mới<i class="material-icons right">loop</i></a>
 </div>
 <div class="n-mbile">
 	<a href="tao-moi" class="waves-effect waves-light btn">Thêm mới<i class="material-icons right">add_circle_outline</i></a>
-	<a href="portal/danhsach" class="waves-effect waves-light btn">Làm mới<i class="material-icons right">loop</i></a>
+	<a href="danh-sach" class="waves-effect waves-light btn">Làm mới<i class="material-icons right">loop</i></a>
 </div>
 <div class="input-field col s12">
 	<form name="frmSrch" method="get" action="portal/danhsach">

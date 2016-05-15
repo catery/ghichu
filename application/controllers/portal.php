@@ -6,7 +6,7 @@ class Portal extends CI_Controller {
 
 		if($this->session->userdata('isLogged') == true) {
 
-			redirect(GHICHU_BASE_URL.'portal/danhsach');
+			redirect('danh-sach');
 
 		} else {
 
@@ -40,7 +40,7 @@ class Portal extends CI_Controller {
 				$this->session->set_userdata($data);
 			}
 			if($this->session->userdata('isLogged') == true) {
-				redirect(GHICHU_BASE_URL.'portal/danhsach');
+				redirect('danh-sach');
 			} else {
 				redirect('dang-nhap');
 			}
@@ -66,15 +66,15 @@ class Portal extends CI_Controller {
 
 			if($change) {
 				$this->session->set_flashdata('SuccessPass', 'Đổi mật khẩu thành công');
-				redirect(GHICHU_BASE_URL.'portal/danhsach');
+				redirect('danh-sach');
 			} else {
 				$this->session->set_flashdata('ErrorPass', 'Đổi mật khẩu thất bại');
-				redirect(GHICHU_BASE_URL.'portal/danhsach');
+				redirect('danh-sach');
 			}
 
 		} else {
 			$this->session->set_flashdata('flashErrorPass', 'Tài khoản không tồn tại');
-			redirect(GHICHU_BASE_URL.'portal/danhsach');
+			redirect('danh-sach');
 		}
 
 	}
@@ -89,18 +89,18 @@ class Portal extends CI_Controller {
 
 	}
 
-	public function danhsach() {
+	public function danhsach($page=15) {
 
 		$ma = $this->session->userdata('maTruyCap');
 
 		if($this->input->get('Key')) {
 
-			$config['base_url'] = GHICHU_BASE_URL.'portal/danhsach';
-	        $config['first_url'] = GHICHU_BASE_URL.'/portal/danhsach/?Key='.$this->input->get('Key');
+			$config['base_url'] = 'danh-sach/'.$page.'/'.$this->input->get('Key');
+	        $config['first_url'] = GHICHU_BASE_URL.'/danh-sach/?Key='.$this->input->get('Key');
 	        $config['suffix'] = '?'.http_build_query($this->input->get(), '', "&");
-	        $config['per_page'] = 15;
+	        $config['per_page'] = $page;
 	        $config['num_links'] = 3;
-	        $config['uri_segment'] = 3;
+	        $config['uri_segment'] = 4;
 	        $config['total_rows'] = $this->ghichu_model->dem_danhsach($ma, $this->input->get('Key'));
 	        $config['full_tag_open'] = '<div class="pagination">';
 	        $config['full_tag_close'] = '</div>';
@@ -108,21 +108,22 @@ class Portal extends CI_Controller {
 
 			$data['template'] = 'partials/danhsach_ghichu';
 			$data['title'] = 'Danh sách ghi chú';
-			$data['record'] = $this->ghichu_model->hienthi_danhsach($ma, $this->input->get('Key'), $config['per_page'], $this->uri->segment(3));
+			$data['record'] = $this->ghichu_model->hienthi_danhsach($ma, $this->input->get('Key'), $config['per_page'], $this->uri->segment(4));
 
 		} else {
 
-			$config['base_url'] = GHICHU_BASE_URL.'portal/danhsach';
-	        $config['per_page'] = 15;
+			$config['base_url'] = 'danh-sach/'.$page;
+			$config['first_url'] = 'danh-sach';
+	        $config['per_page'] = $page;
 	        $config['num_links'] = 3;
-	        $config['total_rows'] = $this->ghichu_model->dem_danhsach($ma, $this->input->get('Key'));
+	        $config['total_rows'] = $this->ghichu_model->dem_danhsach($ma, '');
 	        $config['full_tag_open'] = '<div class="pagination">';
 	        $config['full_tag_close'] = '</div>';
 	        $this->pagination->initialize($config);
 
 			$data['template'] = 'partials/danhsach_ghichu';
 			$data['title'] = 'Danh sách ghi chú';
-			$data['record'] = $this->ghichu_model->hienthi_danhsach($ma, $this->input->get('Key'), $config['per_page'], $this->uri->segment(3));
+			$data['record'] = $this->ghichu_model->hienthi_danhsach($ma, '', $config['per_page'], $this->uri->segment(3));
 
 		}
 
@@ -205,10 +206,10 @@ class Portal extends CI_Controller {
 		$q = $this->ghichu_model->delete($id);
 		if($q) {
 			$this->session->set_flashdata('Success', 'Xóa thành công');
-			redirect(GHICHU_BASE_URL.'portal/danhsach');
+			redirect('danh-sach');
 		} else {
 			$this->session->set_flashdata('Error', 'Xóa thất bại');
-			redirect(GHICHU_BASE_URL.'portal/danhsach');
+			redirect('danh-sach');
 		}
 
 	}

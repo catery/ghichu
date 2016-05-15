@@ -31,13 +31,13 @@
 <form method="post" action="tao-moi" name="DSfrm">
 	<!--Mobile-->
 	<div class="mbile">
-		<a href="portal/danhsach" class="waves-effect waves-light btn">Thoát<i class="material-icons right">reply</i></a>
+		<a href="danh-sach" class="waves-effect waves-light btn">Thoát<i class="material-icons right">reply</i></a>
 		<button class="btn waves-effect waves-light" type="submit" name="btn_smt" value="save" onclick="return check()">
 			Lưu lại<i class="material-icons right">save</i>
 		</button>
 	</div>
 	<div class="n-mbile">
-		<a href="portal/danhsach" class="waves-effect waves-light btn">Thoát<i class="material-icons right">reply</i></a>
+		<a href="danh-sach" class="waves-effect waves-light btn">Thoát<i class="material-icons right">reply</i></a>
 		<button class="btn waves-effect waves-light" type="submit" name="btn_smt" value="save" onclick="return check()">
 			Lưu lại<i class="material-icons right">save</i>
 		</button>
